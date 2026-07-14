@@ -1,0 +1,144 @@
+/* ==========================================================================
+   OWLFX Database System / IqwanEngine v3
+   ========================================================================== */
+
+@import "tailwindcss";
+
+@theme {
+  --color-gold-glow: rgba(245, 158, 11, 0.4);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b; /* zinc-950 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.3); /* semi-transparent amber-500 by default */
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b; /* full amber-500 on hover */
+}
+
+/* CSS Smart Scrollbar: responsive to container hover, thin, ultra-sleek */
+.smart-scroll-amber::-webkit-scrollbar {
+  width: 3px !important;
+  height: 3px !important;
+}
+.smart-scroll-amber::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+.smart-scroll-amber::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.08) !important;
+  border-radius: 9999px !important;
+  transition: background 0.3s ease !important;
+}
+.smart-scroll-amber:hover::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.4) !important;
+}
+.smart-scroll-amber::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.8) !important;
+}
+
+/* CSS Smart Scrollbar for Terminal Logs: responsive to container hover, neon-cyan tint */
+.smart-scroll-cyan::-webkit-scrollbar {
+  width: 3px !important;
+  height: 3px !important;
+}
+.smart-scroll-cyan::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+.smart-scroll-cyan::-webkit-scrollbar-thumb {
+  background: rgba(34, 211, 238, 0.06) !important;
+  border-radius: 9999px !important;
+  transition: background 0.3s ease !important;
+}
+.smart-scroll-cyan:hover::-webkit-scrollbar-thumb {
+  background: rgba(34, 211, 238, 0.35) !important;
+}
+.smart-scroll-cyan::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 211, 238, 0.75) !important;
+}
+
+@keyframes gold-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.15), 0 0 2px rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(245, 158, 11, 0.45), 0 0 8px rgba(245, 158, 11, 0.2);
+    border-color: rgba(245, 158, 11, 0.7);
+  }
+}
+
+@keyframes text-glow {
+  0%, 100% {
+    text-shadow: 0 0 4px rgba(245, 158, 11, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 14px rgba(245, 158, 11, 0.65);
+  }
+}
+
+@keyframes pulse-gold {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.gold-glow-card {
+  animation: gold-glow 4s infinite ease-in-out;
+}
+
+.gold-text-glow {
+  animation: text-glow 3s infinite ease-in-out;
+}
+
+.gold-pulse-indicator {
+  animation: pulse-gold 2s infinite ease-in-out;
+}
+
+.shimmer-placeholder {
+  background: linear-gradient(90deg, #18181b 25%, #2d2d30 50%, #18181b 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.glassmorphism {
+  background: rgba(24, 24, 27, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(245, 158, 11, 0.12);
+}
+
+.glassmorphism-heavy {
+  background: rgba(18, 18, 20, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 158, 11, 0.22);
+}
+
+/* Override styling to prevent text highlights in login screen */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

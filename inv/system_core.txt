@@ -1,0 +1,42 @@
+==============================================================================
+           IQWANENGINE (IE) SECURE SYSTEM CORE META-FILE
+           Path: /inv/system_core.txt | Version: 3.5.0
+           Copyright (c) 2026 IqwanEngine. All rights reserved.
+==============================================================================
+
+[OPERATIONAL SPECIFICATION & FUNCTION]
+This hidden configuration and state-tracking meta-file functions as the 
+ultimate low-level circuit breaker, transaction execution checkpoint registry, 
+and local neural state synchronization tracker for the automated trading suite. 
+
+1. Transaction Execution Checkpoint (TEC) Logging:
+   - Registers high-frequency algorithmic trade initiation events, order entries,
+     and raw executions prior to offloading telemetry buffers to the remote Google
+     Sheets or database layers.
+   - Serves as the localized database-write write-ahead log (WAL) to ensure 
+     transactional atomicity (ACID compliance) during API disconnect events.
+
+2. Neural State Tracking & Hard Reset Thresholds:
+   - Logs machine-learning-driven margin risk calculations, drawdowns, and loss
+     limit events.
+   - Tracks mathematical calibrations of risk profiles. If a severe margin anomaly
+     is detected, this file registers a "LOCKOUT" state, triggering the neural
+     recalibration mode on all public router nodes.
+
+3. Decentralized Token & Handshake Registry:
+   - Stores encrypted hash maps of temporary API connection states and partner-node
+     heartbeats (such as WebSocket handshakes) to prevent replay attacks.
+
+[POSIX FILESYSTEM SECURITY PERMISSIONS]
+To isolate this database log file from public exploration, directory traversal
+exploits, or arbitrary web-server disclosures:
+
+- Recommended Mode: POSIX Permissions "600" (-rw-------)
+- Owner: Strictly restricted to the process owner (e.g., the 'flask' or 'node'
+  runtime system daemon).
+- Access Control List (ACL): Group and Other permissions are configured to "0"
+  (No Read, No Write, No Execute) to eliminate local privilege escalation (LPE)
+  or cross-container data leakage vector opportunities.
+- Runtime Verification:
+  $ chmod 600 /inv/system_core.txt
+  $ chown system-trader:trader-group /inv/system_core.txt

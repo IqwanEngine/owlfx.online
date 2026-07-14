@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Recalibrating - IqwanEngine</title>
+  <style>
+    /* 
+       ========================================================================
+       IqwanEngine (IE) Error Calibration Page Component
+       Aesthetic: Ultra-Premium Minimalist Cyberpunk (Space Black & Crimson Red)
+       Copyright (c) 2026 IqwanEngine. All rights reserved.
+       ========================================================================
+    */
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+    :root {
+      --bg-space-black: #050507;
+      --crimson-red: #ff123f;
+      --crimson-dim: rgba(255, 18, 63, 0.15);
+      --crimson-glow: rgba(255, 18, 63, 0.8);
+      --slate-gray: #8f929d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-space-black);
+      color: #ffffff;
+      font-family: 'JetBrains Mono', monospace;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      perspective: 1000px;
+    }
+
+    /* Cyberpunk Grid Background */
+    .grid-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(255, 18, 63, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 18, 63, 0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: 1;
+      opacity: 0.8;
+    }
+
+    /* Vignette Scanlines Effect */
+    .scanlines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.25) 50%
+      );
+      background-size: 100% 4px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Outer Container Frame */
+    .error-container {
+      position: relative;
+      z-index: 10;
+      width: 90%;
+      max-width: 600px;
+      padding: 40px;
+      background: rgba(5, 5, 7, 0.9);
+      border: 1px solid var(--crimson-red);
+      border-radius: 4px;
+      box-shadow: 
+        0 0 20px var(--crimson-dim),
+        inset 0 0 15px rgba(255, 18, 63, 0.05);
+      text-align: center;
+      transform: rotateX(2deg);
+      animation: drift 6s ease-in-out infinite alternate;
+    }
+
+    /* Neon Pulse Border Animation */
+    @keyframes drift {
+      0% {
+        transform: rotateX(2deg) rotateY(-1deg) translateY(0);
+        box-shadow: 0 0 20px var(--crimson-dim), inset 0 0 15px rgba(255, 18, 63, 0.05);
+      }
+      100% {
+        transform: rotateX(1deg) rotateY(1deg) translateY(-5px);
+        box-shadow: 0 0 30px rgba(255, 18, 63, 0.35), inset 0 0 20px rgba(255, 18, 63, 0.1);
+      }
+    }
+
+    /* System Status Headers */
+    .tech-header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--slate-gray);
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 18, 63, 0.2);
+      padding-bottom: 10px;
+    }
+
+    .tech-header .status-tag {
+      color: var(--crimson-red);
+      font-weight: bold;
+      animation: blink 1.5s steps(2, start) infinite;
+    }
+
+    @keyframes blink {
+      to { visibility: hidden; }
+    }
+
+    /* Core System Message */
+    .system-message-box {
+      margin: 30px 0;
+      padding: 20px;
+      background: rgba(255, 18, 63, 0.03);
+      border-left: 2px solid var(--crimson-red);
+    }
+
+    .error-code {
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--crimson-red);
+      letter-spacing: -1px;
+      text-shadow: 0 0 10px var(--crimson-glow);
+      margin-bottom: 10px;
+    }
+
+    .system-message {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #ffffff;
+      letter-spacing: 0.05em;
+    }
+
+    /* Interactive Status Bars */
+    .progress-track {
+      width: 100%;
+      height: 4px;
+      background-color: rgba(255, 18, 63, 0.1);
+      border-radius: 2px;
+      overflow: hidden;
+      margin: 25px auto;
+    }
+
+    .progress-bar {
+      width: 45%;
+      height: 100%;
+      background-color: var(--crimson-red);
+      box-shadow: 0 0 8px var(--crimson-glow);
+      animation: load 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes load {
+      0% { width: 10%; margin-left: 0%; }
+      50% { width: 80%; }
+      100% { width: 20%; margin-left: 80%; }
+    }
+
+    /* Footer Meta Specs */
+    .tech-footer {
+      font-size: 10px;
+      color: var(--slate-gray);
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      border-top: 1px solid rgba(255, 18, 63, 0.1);
+      padding-top: 15px;
+    }
+
+    .tech-footer .engine-brand {
+      color: #ffffff;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    /* Action Trigger Button */
+    .re-ping-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 22px;
+      background: transparent;
+      border: 1px solid var(--crimson-red);
+      color: var(--crimson-red);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      outline: none;
+    }
+
+    .re-ping-btn:hover {
+      background: var(--crimson-red);
+      color: var(--bg-space-black);
+      box-shadow: 0 0 15px var(--crimson-glow);
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="scanlines"></div>
+
+  <div class="error-container">
+    <div class="tech-header">
+      <span>SYS_LOC: NETWORK_NODE_03</span>
+      <span class="status-tag">CORE_MUTATION_ERR</span>
+    </div>
+
+    <div class="system-message-box">
+      <div class="error-code">CODE_500</div>
+      <p class="system-message">
+        IqwanEngine is recalibrating its neural network. Please try again later.
+      </p>
+    </div>
+
+    <div class="progress-track">
+      <div class="progress-bar"></div>
+    </div>
+
+    <button class="re-ping-btn" onclick="window.location.reload();">Re-ping Connection Node</button>
+
+    <div class="tech-footer">
+      <span>REF_NUM: IE-8889-Z</span>
+      <span class="engine-brand">IqwanEngine // NEURAL_NET_v3.5</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "OWLFX Admin Panel",
+  "description": "Premium Midnight Gold Tech admin database dashboard for the OWLFX Database System and IqwanEngine v3.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
